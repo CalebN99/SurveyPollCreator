@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 //Routes
-const users = require("./routes/users");
+const polls = require("./routes/poll");
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(cors());
 
 // DB Config
 
-app.use("/api/users", users);
+app.use("/api/polls", polls);
 
 const port = process.env.PORT || 5000;
 

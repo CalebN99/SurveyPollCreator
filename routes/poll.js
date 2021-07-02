@@ -5,39 +5,37 @@ const Polls = require("../schemas/poll_schema");
 
 router.post("/create", (req, res) => {
   console.log("Creating Poll..");
-  const newPoll = new Polls({
-    PollQuestion: req.body.PollQuestion,
-    PollAnswers: {
-      Answer1: {
-        Answer: req.body.Answer1,
+  try {
+    const newPoll = new Polls({
+      PollQuestion: req.body.PollQuestion,
+      PollAnswers: {
+        Answer1: {
+          Answer: req.body.Answer1,
+        },
+        Answer2: {
+          Answer: req.body.Answer2,
+        },
+        Answer3: {
+          Answer: req.body.Answer3,
+        },
+        Answer4: {
+          Answer: req.body.Answer4,
+        },
+        Answer5: {
+          Answer: req.body.Answer5,
+        },
       },
-      Answer2: {
-        Answer: req.body.Answer2,
-      },
-      Answer3: {
-        Answer: req.body.Answer3,
-      },
-      Answer4: {
-        Answer: req.body.Answer4,
-      },
-      Answer5: {
-        Answer: req.body.Answer5,
-      },
-    },
-  });
+    });
 
-  newPoll.save().then((item) => res.json(item));
+    newPoll.save().then((item) => res.json(item));
+    console.log("Poll Created");
+  } catch (error) {
+    res.send(error);
+  }
 });
-router.get("/:id", (req, res) => {
-  console.log(req.params.id);
-
-  Polls.add({ GroupID: req.params.id }, (err, items) => {
-    console.log(items);
-    if (err) res.send(err);
-    else res.json(items);
-  });
-
-  console.log("Bugs loaded");
+router.get("/", (req, res) => {
+  console.log("Yooo");
+  res.send("Yo");
 });
 
 mongoose.connect(

@@ -8,7 +8,6 @@ class App extends Component {
     super(props);
     this.state = {};
   }
-
   render() {
     return (
       <Router>
@@ -25,6 +24,7 @@ class App extends Component {
             <Route path="/">
               <Home />
             </Route>
+            <Route path="/polls/:id"></Route>
           </Switch>
         </div>
       </Router>

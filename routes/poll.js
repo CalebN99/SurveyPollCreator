@@ -8,34 +8,30 @@ router.post("/create", (req, res) => {
   try {
     const newPoll = new Polls({
       PollQuestion: req.body.PollQuestion,
-      PollAnswers: {
-        Answer1: {
-          Answer: req.body.Answer1,
-        },
-        Answer2: {
-          Answer: req.body.Answer2,
-        },
-        Answer3: {
-          Answer: req.body.Answer3,
-        },
-        Answer4: {
-          Answer: req.body.Answer4,
-        },
-        Answer5: {
-          Answer: req.body.Answer5,
-        },
-      },
+      Answer1: req.body.Answer1,
+      Answer2: req.body.Answer2,
+      Answer3: req.body.Answer3,
+      Answer4: req.body.Answer4,
+      Answer5: req.body.Answer5,
+      A3: req.body.A3,
+      A4: req.body.A4,
+      A5: req.body.A5,
     });
 
     newPoll.save().then((item) => res.json(item));
-    console.log("Poll Created");
   } catch (error) {
+    console.log("Creating Poll Failed..");
     res.send(error);
   }
+
+  console.log("Poll Created");
 });
-router.get("/", (req, res) => {
-  console.log("Yooo");
-  res.send("Yo");
+router.get("/:id", (req, res) => {
+  console.log(req.params.id);
+  Polls.findById(req.params.id, (err, items) => {
+    if (err) res.send(err);
+    else res.json(items);
+  });
 });
 
 mongoose.connect(

@@ -1,0 +1,35 @@
+.textInput {
+  font-size: 3vh;
+  border: 0;
+  border-bottom: 1px solid gray;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: 0.75vw;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+  border-radius: 1vw;
+}
+
+.textInput:focus {
+  outline: none;
+}
+
+.textInput:focus::placeholder {
+  color: transparent;
+}
+
+.textInputLabel {
+  margin: auto;
+}
+
+.createGroupForm {
+  width: 80vw;
+  margin: 0 auto;
+  border: 1px solid blue;
+  text-align: center;
+}
+
+.createGroupForm h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+}

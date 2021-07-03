@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import store from "../store";
 import { connect } from "react-redux";
 import { Provider } from "react-redux";
-import "./Home.css";
+import "./Poll.css";
 import { createPoll, getPoll } from "../actions/itemAction";
 
-class Home extends Component {
+class Poll extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,9 +48,8 @@ class Home extends Component {
           <form className="createGroupForm" onSubmit={this.handleNewPoll}>
             <h2>Create Poll</h2>
             <br />
-            <label className="textInputLabel">
+            <label>
               <input
-                className="textInput"
                 type="text"
                 name="pollQ"
                 value={this.state.pollQ}
@@ -58,62 +57,24 @@ class Home extends Component {
                 placeholder="Enter Poll Question.."
               />
             </label>
-            <br />
-            <label className="textInputLabel">
+            <label>
               <input
-                className="textInput"
                 type="text"
                 name="answer1"
                 value={this.state.answer1}
                 onChange={this.handleChange}
-                placeholder="Enter Poll Answer 1.."
+                placeholder="Enter Poll Answer.."
               />
             </label>
-            <br />
-            <label className="textInputLabel">
+            <label>
               <input
-                className="textInput"
                 type="text"
                 name="answer2"
                 value={this.state.answer2}
                 onChange={this.handleChange}
-                placeholder="Enter Poll Answer 2.."
+                placeholder="Enter Poll Answer.."
               />
             </label>
-            <br />
-            <label className="textInputLabel">
-              <input
-                className="textInput"
-                type="text"
-                name="answer3"
-                value={this.state.answer3}
-                onChange={this.handleChange}
-                placeholder="Enter Poll Answer 3.."
-              />
-            </label>
-            <br />
-            <label className="textInputLabel">
-              <input
-                className="textInput"
-                type="text"
-                name="answer4"
-                value={this.state.answer4}
-                onChange={this.handleChange}
-                placeholder="Enter Poll Answer 4.."
-              />
-            </label>
-            <br />
-            <label className="textInputLabel">
-              <input
-                className="textInput"
-                type="text"
-                name="answer5"
-                value={this.state.answer5}
-                onChange={this.handleChange}
-                placeholder="Enter Poll Answer 5.."
-              />
-            </label>
-            <br />
             <input type="submit" value="Create Poll!" />
           </form>
         </div>
@@ -128,4 +89,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   createPoll,
   getPoll,
-})(Home);
+})(Poll);

@@ -3,6 +3,7 @@ import { GET_POLL, CREATE_POLL } from "../actions/types";
 
 const initialState = {
   poll: [],
+  iD: [],
   loading: false,
 };
 
@@ -16,7 +17,7 @@ export default function foo(state = initialState, action) {
       };
     case CREATE_POLL:
       return {
-        ...state,
+        iD: action.payload,
       };
     default:
       return {

@@ -18,7 +18,10 @@ router.post("/create", (req, res) => {
       A5: req.body.A5,
     });
 
-    newPoll.save().then((item) => res.json(item));
+    newPoll.save().then((item) => {
+      console.log(item);
+      res.json(item);
+    });
   } catch (error) {
     console.log("Creating Poll Failed..");
     res.send(error);

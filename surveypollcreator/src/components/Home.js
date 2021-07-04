@@ -9,13 +9,15 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      poll: [],
       pollQ: "",
       answer1: "",
       answer2: "",
       answer3: "",
       answer4: "",
       answer5: "",
+      id: "a",
+      pollCreated: false,
+      linkColor: "transparent",
     };
   }
 
@@ -33,6 +35,7 @@ class Home extends Component {
     };
 
     this.props.createPoll(newPoll);
+    this.setState({ linkColor: "white" });
     event.preventDefault();
   };
 
@@ -116,6 +119,9 @@ class Home extends Component {
             <br />
             <input type="submit" value="Create Poll!" />
           </form>
+          <h1 style={{ color: this.state.linkColor, textAlign: "center" }}>
+            http:/localhost:3000/polls/{this.props.iD._id}
+          </h1>
         </div>
       </Provider>
     );
@@ -123,7 +129,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  poll: state.poll,
+  poll: state.poll.poll,
+  iD: state.iD.iD,
 });
 export default connect(mapStateToProps, {
   createPoll,

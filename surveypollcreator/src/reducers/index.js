@@ -3,4 +3,5 @@ import itemReducer from "./itemReducer";
 
 export default combineReducers({
   poll: itemReducer,
+  iD: itemReducer,
 });

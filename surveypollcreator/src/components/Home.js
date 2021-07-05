@@ -34,8 +34,16 @@ class Home extends Component {
       A5: 0,
     };
 
-    this.props.createPoll(newPoll);
-    this.setState({ linkColor: "white" });
+    if (
+      this.state.pollQ.length > 0 &&
+      this.state.answer1.length > 0 &&
+      this.state.answer2.length > 0
+    ) {
+      this.props.createPoll(newPoll);
+      this.setState({ linkColor: "black" });
+    } else {
+      alert("Must have at the minimum: Question, Answer1, and Answer2 ");
+    }
     event.preventDefault();
   };
 
@@ -51,6 +59,8 @@ class Home extends Component {
           <form className="createGroupForm" onSubmit={this.handleNewPoll}>
             <h2>Create Poll</h2>
             <br />
+            <h2 id="questionTitle">Question:</h2>
+            <br />
             <label className="textInputLabel">
               <input
                 className="textInput"
@@ -62,6 +72,9 @@ class Home extends Component {
               />
             </label>
             <br />
+            <div className="border1"></div>
+            <br />
+
             <label className="textInputLabel">
               <input
                 className="textInput"

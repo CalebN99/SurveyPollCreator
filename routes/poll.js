@@ -29,11 +29,14 @@ router.post("/create", (req, res) => {
 
   console.log("Poll Created");
 });
-router.get("/:id", (req, res) => {
+router.get("/polls/:id", (req, res) => {
   console.log(req.params.id);
   Polls.findById(req.params.id, (err, items) => {
     if (err) res.send(err);
-    else res.json(items);
+    else {
+      console.log("Poll Sent");
+      res.json(items);
+    }
   });
 });
 

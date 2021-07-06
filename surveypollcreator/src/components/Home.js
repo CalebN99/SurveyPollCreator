@@ -130,7 +130,11 @@ class Home extends Component {
               />
             </label>
             <br />
-            <input type="submit" value="Create Poll!" />
+            <input
+              type="submit"
+              value="Create Poll!"
+              className="submitButton"
+            />
           </form>
           <h1 style={{ color: this.state.linkColor, textAlign: "center" }}>
             http:/localhost:3000/polls/{this.props.iD._id}

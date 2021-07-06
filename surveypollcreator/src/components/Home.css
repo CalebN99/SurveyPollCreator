@@ -27,10 +27,25 @@
   font-size: 3vw;
 }
 
+.submitButton {
+  width: 6vw;
+  font-size: 1vw;
+  margin-top: 1vw;
+  padding: 0.25vw;
+  background-color: white;
+  border: 0;
+  transition: all 0.25s ease-in-out;
+}
+
+.submitButton:hover {
+  background-color: #4682b4;
+  cursor: pointer;
+}
+
 .createGroupForm {
   background: rgb(33, 33, 33);
   width: 100vw;
-  height: 75 vh;
+  height: 75vh;
   margin: 0 auto;
   text-align: center;
   padding-top: 1vw;

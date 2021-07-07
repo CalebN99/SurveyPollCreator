@@ -1,4 +1,4 @@
-import { GET_POLL, CREATE_POLL } from "../actions/types";
+import { GET_POLL, CREATE_POLL, SET_ID } from "../actions/types";
 //   import { startSession } from "mongoose";
 
 const initialState = {
@@ -18,6 +18,10 @@ export default function foo(state = initialState, action) {
     case CREATE_POLL:
       return {
         iD: action.payload,
+      };
+    case SET_ID:
+      return {
+        setID: action.payload,
       };
     default:
       return {

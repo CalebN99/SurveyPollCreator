@@ -6,18 +6,21 @@ import { createPoll, getPoll } from "../actions/itemAction";
 import { useParams } from "react-router-dom";
 import Poll from "./Poll";
 
-function PollSetup(props) {
-  let { id } = useParams();
+function PollSetup() {
+  console.log("yo");
+
+  let { ID } = useParams();
 
   return (
     <Provider store={store}>
-      <Poll ID={id} />
+      <Poll id={ID} />
     </Provider>
   );
 }
 
 const mapStateToProps = (state) => ({
   poll: state.poll.poll,
+  setID: state.setID,
 });
 export default connect(mapStateToProps, {
   createPoll,

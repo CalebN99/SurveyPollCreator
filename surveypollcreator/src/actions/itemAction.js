@@ -11,7 +11,8 @@ export const createPoll = (item) => (dispatch) => {
 };
 
 export const getPoll = (item) => (dispatch) => {
-  axios.post("/api/polls/:id").then((res) =>
+  console.log("Axios GET POLL");
+  axios.post(`/api/polls/${item}`).then((res) =>
     dispatch({
       type: GET_POLL,
       payload: res.data,

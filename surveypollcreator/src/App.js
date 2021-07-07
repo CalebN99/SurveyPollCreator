@@ -2,7 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
-import Poll from "./components/Poll";
+import PollSetup from "./components/PollSetup";
 import store from "./store";
 import { connect } from "react-redux";
 import { Provider } from "react-redux";
@@ -24,8 +24,8 @@ class App extends Component {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/polls/:id" poll={this.props.poll}>
-                <Poll />
+              <Route path="/polls/:id">
+                <PollSetup />
               </Route>
             </Switch>
           </div>
